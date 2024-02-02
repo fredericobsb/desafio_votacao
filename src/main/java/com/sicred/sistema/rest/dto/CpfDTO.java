@@ -14,6 +14,8 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Builder
 public class CpfDTO implements Serializable {
-    @JsonProperty("status")
+    
+	private static final long serialVersionUID = 1L;
+	@JsonProperty("status")
     private String status;
 }

@@ -1,4 +1,6 @@
-package com.sicred.sistema.dto;
+package com.sicred.sistema.rest.dto;
+
+import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
@@ -8,9 +10,14 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class SessaoDTO {
+public class SessaoDTO implements Serializable{
 
-    @JsonProperty("id_pauta")
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@JsonProperty("id_pauta")
     private Long idPauta;
 
     @JsonProperty("minutos")

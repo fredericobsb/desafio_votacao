@@ -7,20 +7,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.sicred.sistema.rest.dto.ResultadoDTO;
 import com.sicred.sistema.service.ResultadoService;
-
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
-
-
-
 @RestController
-@RequestMapping(value="/api/resultado",  produces = {"application/json"})
+@RequestMapping(value="/api/v1/resultado",  produces = {"application/json"})
 @Tag(name="Resultado Controller")
 public class ResultadoController {
 

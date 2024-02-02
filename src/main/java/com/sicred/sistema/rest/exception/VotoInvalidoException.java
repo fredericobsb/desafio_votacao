@@ -6,7 +6,12 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ResponseStatus(HttpStatus.BAD_REQUEST)
 public class VotoInvalidoException extends RuntimeException {
 
-    public VotoInvalidoException(String exception) {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public VotoInvalidoException(String exception) {
         super(exception);
     }
 

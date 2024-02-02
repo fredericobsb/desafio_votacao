@@ -20,7 +20,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import static com.sicred.sistema.rest.mapper.AssociadoMapper.toDtoList;
 
 @RestController
-@RequestMapping(value="/api/associados",  produces = {"application/json"})
+@RequestMapping(value="/api/v1/associados",  produces = {"application/json"})
 @Tag(name="Associado Controller")
 public class AssociadoController {
 	
@@ -55,5 +55,4 @@ public class AssociadoController {
 		 List<Associado>listaDeAssociados = associadoService.recuperarTodosAssociados();
 		 return new ResponseEntity<>(toDtoList(listaDeAssociados), HttpStatus.OK);
 	 }
-
 }

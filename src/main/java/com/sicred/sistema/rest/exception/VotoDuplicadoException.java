@@ -7,7 +7,12 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ResponseStatus(HttpStatus.CONFLICT)
 public class VotoDuplicadoException extends RuntimeException {
 
-    public VotoDuplicadoException(String exception) {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public VotoDuplicadoException(String exception) {
         super(exception);
     }
 }

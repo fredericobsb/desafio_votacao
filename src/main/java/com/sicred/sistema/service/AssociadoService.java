@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.sicred.sistema.entidades.Associado;
 import com.sicred.sistema.repository.AssociadoRepository;
-import com.sicred.sistema.validator.CpfValidador;
+//import com.sicred.sistema.validator.CpfValidador;
 import com.sicred.sistema.validator.ValidaCPF;
 
 @Service

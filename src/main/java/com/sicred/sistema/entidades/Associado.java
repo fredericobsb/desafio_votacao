@@ -1,10 +1,5 @@
 package com.sicred.sistema.entidades;
 
-import java.time.LocalDateTime;
-import java.util.Set;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

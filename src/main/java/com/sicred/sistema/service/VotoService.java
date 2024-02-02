@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 import com.sicred.sistema.rest.exception.SessaoFechadaException;
 import com.sicred.sistema.rest.exception.VotoDuplicadoException;
 import com.sicred.sistema.rest.exception.VotoInvalidoException;
-import com.sicred.sistema.validator.CpfValidador;
+//import com.sicred.sistema.validator.CpfValidador;
 import com.sicred.sistema.validator.ValidaCPF;
 import com.sicred.sistema.entidades.Associado;
 import com.sicred.sistema.entidades.Pauta;
@@ -51,7 +51,6 @@ public class VotoService {
         validarVotoPorIdDePauta(voto.getIdPauta());
         logger.info("cadastrando novo voto: " + voto);
         if(voto.getIdCooperado() == null) {
-        	//salvar o associado
         	Voto votoDoCpfJaExiste = votoRepository.findByCpf(voto.getCpf());
         	Associado associado = null;
         	if(votoDoCpfJaExiste == null && voto.getIdCooperado() == null) {

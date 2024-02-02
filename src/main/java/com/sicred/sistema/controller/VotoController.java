@@ -7,22 +7,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.sicred.sistema.entidades.Voto;
 import com.sicred.sistema.rest.dto.VotoDTO;
 import com.sicred.sistema.rest.mapper.VotoMapper;
 import com.sicred.sistema.service.VotoService;
-
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
-
-
-
 @RestController
-@RequestMapping(value = "/api/votos",  produces = {"application/json"})
+@RequestMapping(value = "/api/v1/votos",  produces = {"application/json"})
 @Tag(name="Voto Controller")
 public class VotoController {
 	
@@ -44,5 +39,4 @@ public class VotoController {
         }
         return new ResponseEntity<>(null, HttpStatus.CONFLICT);
     }
-
 }

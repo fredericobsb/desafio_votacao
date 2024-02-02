@@ -16,7 +16,9 @@ import java.time.LocalDateTime;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class PautaDTO implements Serializable {
 
-    @JsonProperty("id_pauta")
+	private static final long serialVersionUID = 1L;
+
+	@JsonProperty("id_pauta")
     private Long id;
 
     @JsonProperty("titulo")

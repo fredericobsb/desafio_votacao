@@ -13,22 +13,20 @@ import com.sicred.sistema.service.ResultadoService;
 import static com.sicred.sistema.shared.Constantes.FECHADA;
 
 @Component
-//@EnableScheduling
+@EnableScheduling
 public class PautaSchedule {
 
     private static final Logger logger = LoggerFactory.getLogger(PautaSchedule.class);
 
     private final PautaService pautaService;
     private final ResultadoService resultadoService;
-    //private final KafkaProducerService kafkaProducerService;
 
     @Autowired
     public PautaSchedule(PautaService pautaService,
-                         ResultadoService resultadoService//KafkaProducerService kafkaProducerService
+                         ResultadoService resultadoService
                          ) {
         this.pautaService = pautaService;
         this.resultadoService = resultadoService;
-       // this.kafkaProducerService = kafkaProducerService;
     }
 
     @Scheduled(fixedDelay = 1000)
@@ -38,18 +36,12 @@ public class PautaSchedule {
             ResultadoDTO resultadoDTO = resultadoService.obterResultado(pauta.getId());
             atulizarResultado(resultadoDTO);
             logger.info("Enviando resultado :" + resultadoDTO);
-            //kafkaProducerService.writeMessage(toJson(resultadoDTO));
             logger.info("salvando pauta fechada :" + pauta);
-            sinalizarEnvioPauta(pauta);
             pautaService.atualizarPauta(pauta);
         });
     }
 
     private void atulizarResultado(ResultadoDTO resultadoDTO) {
         resultadoDTO.setStatus(FECHADA);
-    }
-
-    private void sinalizarEnvioPauta(Pauta pauta) {
-        pauta.setEnviadoKafka(true);
     }
 }

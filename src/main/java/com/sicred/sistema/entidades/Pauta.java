@@ -8,7 +8,7 @@ import java.util.Set;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.sicred.sistema.dto.SessaoDTO;
+import com.sicred.sistema.rest.dto.SessaoDTO;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -19,8 +19,10 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
@@ -47,21 +49,6 @@ public class Pauta {
     @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss", shape = JsonFormat.Shape.STRING)
     private LocalDateTime tempoLimite;
 
-    public boolean naoFoiEnviada() {
-        return !this.enviadoKafka;
-    }
-
-    public boolean isEnviadoKafka() {
-        return enviadoKafka;
-    }
-
-    public void setEnviadoKafka(boolean enviadoKafka) {
-        this.enviadoKafka = enviadoKafka;
-    }
-
-    @Column(columnDefinition = "boolean default false")
-    private boolean enviadoKafka;
-
     public Long getId() {
         return id;
     }
@@ -84,7 +71,6 @@ public class Pauta {
 
     public LocalDateTime abrirVotacao(SessaoDTO sessaoDTO) {
         this.status = "ABERTA";
-        this.enviadoKafka = false;
         return this.tempoLimite = obterTempoFinal(sessaoDTO);
     }
 
@@ -106,7 +92,7 @@ public class Pauta {
     }
 
     public boolean estahFechadaIhNaoFoiEnviada() {
-        return estahFechada() && naoFoiEnviada();
+        return estahFechada();
     }
 
     private boolean naoEstahAberta() {
@@ -132,7 +118,7 @@ public class Pauta {
                 ", votos=" + votos +
                 ", status='" + status + '\'' +
                 ", tempoLimite=" + tempoLimite +
-                ", enviadoKafka=" + enviadoKafka +
+                ", enviadoKafka=" +
                 '}';
     }
 }

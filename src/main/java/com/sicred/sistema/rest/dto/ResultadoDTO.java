@@ -12,7 +12,9 @@ import java.io.Serializable;
 @Builder
 public class ResultadoDTO implements Serializable {
 
-    @JsonProperty("id_pauta")
+	private static final long serialVersionUID = 1L;
+
+	@JsonProperty("id_pauta")
     private Long seqPauta;
 
     @JsonProperty("titulo")

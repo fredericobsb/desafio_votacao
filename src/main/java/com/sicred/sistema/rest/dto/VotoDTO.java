@@ -5,14 +5,18 @@ import lombok.*;
 
 import java.io.Serializable;
 
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 public class VotoDTO implements Serializable {
 
-    @JsonProperty("id_pauta")
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@JsonProperty("id_pauta")
     private Long idPauta;
 
     @JsonProperty("id_cooperado")

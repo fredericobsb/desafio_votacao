@@ -12,7 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.sicred.sistema.entidades.Pauta;
 import com.sicred.sistema.entidades.Voto;
-import com.sicred.sistema.repository.PautaRepository;
 import com.sicred.sistema.rest.dto.ResultadoDTO;
 
 @Service

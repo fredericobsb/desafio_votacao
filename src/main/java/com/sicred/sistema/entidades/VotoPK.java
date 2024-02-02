@@ -11,6 +11,10 @@ import java.io.Serializable;
 @Builder
 public class VotoPK implements Serializable {
 
-    private Long idPauta;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private Long idPauta;
     private Long idCooperado;
 }

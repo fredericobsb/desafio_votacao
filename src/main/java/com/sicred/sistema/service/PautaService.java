@@ -2,15 +2,14 @@ package com.sicred.sistema.service;
 
 import static com.sicred.sistema.shared.Constantes.ABERTA;
 import static com.sicred.sistema.shared.Constantes.PAUTA_NAO_ENCONTRADA_EXCEPTION;
-
 import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.sicred.sistema.entidades.Pauta;
 import com.sicred.sistema.repository.PautaRepository;
+import com.sicred.sistema.rest.dto.SessaoDTO;
 import com.sicred.sistema.rest.exception.PautaNaoEncontradaException;
 
 @Service
@@ -48,5 +47,14 @@ public class PautaService {
     public Pauta atualizarPauta(Pauta pauta) {
         logger.info("atualizando pauta: " + pauta);
         return this.pautaRepository.save(pauta);
+    }
+    
+    public Pauta abrirVotacao(SessaoDTO sessaoDTO) {
+    	  logger.info("abrindo nova Sessao: " + sessaoDTO);
+          Pauta pauta = buscarPorId(sessaoDTO.getIdPauta());
+          pauta.abrirVotacao(sessaoDTO);
+
+          logger.info("salvando pauta: " + pauta);
+          return pautaRepository.save(pauta);
     }
 }
